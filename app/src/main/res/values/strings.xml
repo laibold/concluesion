@@ -3,6 +3,27 @@
     <string name="db_name">database.db</string>
     
     <string name="colonel_mustard">Oberst von Gatow</string>
-    <string name="...">...</string>
+    <string name="mrs.white">Frau Weiss</string>
+    <string name="mr._green">Reverend Grün</string>
+    <string name="mrs._peacock">Baronin von Porz</string>
+    <string name="professor_bloom">Professor Bloom</string>
+    <string name="miss_scarlet">Fräulein Gloria</string>
+
+    <string name="dagger">Dolch</string>
+    <string name="candle_stick">Leuchter</string>
+    <string name="lead_pipe">Heizungsrohr</string>
+    <string name="revolver">Pistole</string>
+    <string name="rope">Seil</string>
+    <string name="wrench">Rohrzange</string>
+
+    <string name="kitchen">Küche</string>
+    <string name="ballroom">Musikzimmer</string>
+    <string name="conservatory">Wintergarten</string>
+    <string name="dining_room">Speisezimmer</string>
+    <string name="billiard_room">Billiardzimmer</string>
+    <string name="library">Bibliothek</string>
+    <string name="lounge">Saloon</string>
+    <string name="hall">Halle</string>
+    <string name="study">Arbeitszimmer</string>
 
 </resources>

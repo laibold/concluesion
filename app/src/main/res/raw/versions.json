@@ -2,15 +2,32 @@
     "default": {
         "characters": [
             "colonel_mustard",
-            "..."
+            "mrs._white",
+            "mr._green",
+            "mrs._peacock",
+            "professor_bloom",
+            "miss_scarlet"
+
         ],
         "weapons": [
             "dagger",
-            "..."
+            "candlestick",
+            "lead_pipe",
+            "revolver",
+            "rope",
+            "wrench"
         ],
         "rooms": [
+            "kitchen",
+            "ballroom",
+            "conservatory",
+            "dining_room",
+            "billiard_room",
+            "library",
+            "lounge",
             "hall",
-            "..."
+            "study",
+
         ]
     }
 }
