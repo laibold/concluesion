@@ -1,0 +1,16 @@
+{
+    "default": {
+        "characters": [
+            "colonel_mustard",
+            "..."
+        ],
+        "weapons": [
+            "dagger",
+            "..."
+        ],
+        "rooms": [
+            "hall",
+            "..."
+        ]
+    }
+}
