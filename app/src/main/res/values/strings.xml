@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Concluesion</string>
+    <string name="db_name">database</string>
 </resources>

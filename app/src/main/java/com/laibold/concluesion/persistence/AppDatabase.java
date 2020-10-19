@@ -3,12 +3,13 @@ package com.laibold.concluesion.persistence;
 import android.content.Context;
 
 import com.laibold.concluesion.R;
+import com.laibold.concluesion.model.Game;
 
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {}, version = 0)
+@Database(entities = {Game.class}, version = 0)
 public abstract class AppDatabase extends RoomDatabase {
 
     private static String DB_NAME;

@@ -1,8 +1,16 @@
 package com.laibold.concluesion.model;
 
+import androidx.room.ColumnInfo;
+import androidx.room.Dao;
+import androidx.room.Delete;
+import androidx.room.Entity;
+import androidx.room.Insert;
+import androidx.room.PrimaryKey;
+
 import java.util.ListIterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 
+@Entity
 public class Game {
     private CopyOnWriteArrayList<Player> players;
     private ListIterator<Player> iter;
