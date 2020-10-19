@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.laibold.concluesion.R;
+import com.laibold.concluesion.model.Game;
 
 public class MainFragment extends Fragment {
 
@@ -33,6 +34,7 @@ public class MainFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(MainViewModel.class);
+        mViewModel.setGame(new Game());
         // TODO: Use the ViewModel
     }
 
