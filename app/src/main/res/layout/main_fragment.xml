@@ -8,7 +8,7 @@
     tools:context=".ui.main.MainFragment">
 
     <Button
-        android:id="@+id/main_play"
+        android:id="@+id/main_play_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -17,33 +17,15 @@
         android:height="25pt"
         android:text="@string/play" />
 
-    <LinearLayout
-        android:id="@+id/main_players_wrapper"
-        android:layout_width="wrap_content"
-        android:layout_height="400dp"
-        android:layout_below="@id/main_play"
-        android:layout_marginHorizontal="50dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="40dp">
-
-        <ListView
-            android:id="@+id/main_players"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:listitem="@layout/main_player_cell"
-            android:divider="@null" />
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/main_add_player"
+    <ListView
+        android:id="@+id/main_players_list_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/main_players_wrapper"
-        android:layout_marginBottom="20dp"
-        android:layout_marginStart="50dp"
-        android:text="+" />
-
-<!--    TODO button unter letztes listenelement, aber liste flexibel lang mit maximum-->
-
+        android:layout_below="@id/main_play_btn"
+        android:layout_marginHorizontal="50dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="40dp"
+        android:divider="@null"
+        tools:listitem="@layout/main_player_cell" />
 
 </RelativeLayout>
