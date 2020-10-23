@@ -8,8 +8,11 @@ import com.laibold.concluesion.model.Game;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverter;
+import androidx.room.TypeConverters;
 
 @Database(entities = {Game.class}, version = 0)
+@TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
 
     private static String DB_NAME;

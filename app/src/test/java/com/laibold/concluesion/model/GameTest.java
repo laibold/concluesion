@@ -5,8 +5,8 @@ import static org.junit.Assert.assertEquals;
 
 public class GameTest {
     Game testGame = new Game();
-    Player testA = new Player("A");
-    Player testB = new Player("B");
+    Player testA = new Player(1, "A");
+    Player testB = new Player(2, "B");
 
     @Test
     public void addPlayer_isCorrect(){
@@ -18,7 +18,7 @@ public class GameTest {
     public void removePlayer_isCorrect(){
         testGame.addPlayer(testA);
         testGame.addPlayer(testB);
-        testGame.removePlayer(0);
+        testGame.removePlayer(1);
         assert(testGame.getNumberOfPlayers() == 1);
     }
 

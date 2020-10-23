@@ -1,23 +1,23 @@
 package com.laibold.concluesion.model;
 
 import androidx.room.ColumnInfo;
-import androidx.room.Dao;
-import androidx.room.Delete;
 import androidx.room.Entity;
-import androidx.room.Insert;
 import androidx.room.PrimaryKey;
 
-import java.util.ListIterator;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.ArrayList;
 
 @Entity
 public class Game {
-    private CopyOnWriteArrayList<Player> players;
-    private ListIterator<Player> iter;
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+
+    @ColumnInfo
+    private ArrayList<Player> players;
+    @ColumnInfo
+    private int currPlayerIndex = -1;
 
     public Game() {
-        this.players = new CopyOnWriteArrayList<>();
-        this.iter = players.listIterator();
+        this.players = new ArrayList<>();
     }
 
     public void addPlayer(Player newPlayer) {
@@ -31,13 +31,39 @@ public class Game {
     }
 
     public Player getNextPlayer() {
-        if (!iter.hasNext()) {
-            iter = players.listIterator(0);
+        if (currPlayerIndex == (players.size() - 1)) {
+            currPlayerIndex = 0;
+            return players.get(currPlayerIndex);
         }
-        return iter.next();
+        currPlayerIndex++;
+        return players.get(currPlayerIndex);
     }
 
     public int getNumberOfPlayers() {
         return players.size();
+    }
+
+    public int getCurrPlayerIndex() {
+        return currPlayerIndex;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public ArrayList<Player> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(ArrayList<Player> players) {
+        this.players = players;
+    }
+
+    public void setCurrPlayerIndex(int currPlayerIndex) {
+        this.currPlayerIndex = currPlayerIndex;
     }
 }
