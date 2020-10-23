@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.laibold.concluesion.R;
 import com.laibold.concluesion.model.Game;
+import com.laibold.concluesion.persistence.dao.GameDao;
 
 import androidx.room.Database;
 import androidx.room.Room;
@@ -11,7 +12,7 @@ import androidx.room.RoomDatabase;
 import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
 
-@Database(entities = {Game.class}, version = 0)
+@Database(entities = {Game.class}, version = 1)
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
 
@@ -33,4 +34,5 @@ public abstract class AppDatabase extends RoomDatabase {
                 .build();
     }
 
+    public abstract GameDao gameDao();
 }

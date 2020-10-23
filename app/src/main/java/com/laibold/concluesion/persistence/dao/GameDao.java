@@ -9,8 +9,8 @@ import com.laibold.concluesion.model.Game;
 @Dao
 public interface GameDao {
     @Query("SELECT * FROM game")
-    public Game[] loadAllGames();
+    Game[] loadAll();
 
     @Insert
-    public void insertGame();
+    void insert(Game game);
 }

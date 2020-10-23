@@ -14,8 +14,7 @@ public class Player {
 
     public Player(){}
 
-    public Player(int id, String name) {
-        this.id = id;
+    public Player(String name) {
         this.name = name;
     }
 
@@ -29,5 +28,9 @@ public class Player {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
