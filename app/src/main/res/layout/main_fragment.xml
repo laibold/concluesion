@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.main.MainFragment">
+    tools:context=".MainActivity">
 
     <Button
         android:id="@+id/main_play_btn"
@@ -15,7 +14,8 @@
         android:layout_marginTop="70dp"
         android:width="70pt"
         android:height="25pt"
-        android:text="@string/play" />
+        android:text="@string/play"
+        android:onClick="startGame"/>
 
     <ListView
         android:id="@+id/main_players_list_view"

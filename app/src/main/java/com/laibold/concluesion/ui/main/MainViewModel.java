@@ -16,4 +16,5 @@ public class MainViewModel extends ViewModel {
     public LiveData<Game> getGame() {
         return this.game;
     }
+
 }
