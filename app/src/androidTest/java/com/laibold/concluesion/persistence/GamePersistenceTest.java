@@ -30,6 +30,7 @@ public class GamePersistenceTest {
     public void createDb() {
         Context context = ApplicationProvider.getApplicationContext();
         db = Room.inMemoryDatabaseBuilder(context, AppDatabase.class).build();
+        db.clearAllTables();
         gameDao = db.gameDao();
     }
 
@@ -53,9 +54,12 @@ public class GamePersistenceTest {
 
         ArrayList<Player> players = loadedGame.getPlayers();
 
-        assertEquals(players.size(), 2);
-        assertEquals(players.get(0).getName(), "Beggae");
-        assertEquals(players.get(1).getName(), "Mawien");
+        assertEquals(players.size(), 5);
+        assertEquals(players.get(0).getName(), "");
+        assertEquals(players.get(1).getName(), "");
+        assertEquals(players.get(2).getName(), "");
+        assertEquals(players.get(3).getName(), "Beggae");
+        assertEquals(players.get(4).getName(), "Mawien");
     }
 
 }

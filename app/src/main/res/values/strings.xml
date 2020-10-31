@@ -27,5 +27,7 @@
     <string name="study">Arbeitszimmer</string>
 
     <string name="play">Play</string>
+    <string name="choose_yourself">Wähle dich selbst aus</string>
+    <string name="give_all_players_a_name">Gib jedem Spieler einen Namen</string>
 
 </resources>

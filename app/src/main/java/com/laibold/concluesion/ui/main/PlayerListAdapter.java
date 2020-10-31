@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 
 import androidx.annotation.NonNull;
@@ -21,6 +23,7 @@ public class PlayerListAdapter extends ArrayAdapter<Player> {
     private final static int LAYOUT = R.layout.main_player_cell;
     private final Context context;
     private final ArrayList<Player> players;
+    private Player currAppUser;
 
     public PlayerListAdapter(@NonNull Context context, @NonNull ArrayList<Player> players) {
         super(context, LAYOUT, players);
@@ -58,6 +61,28 @@ public class PlayerListAdapter extends ArrayAdapter<Player> {
         if (view == null) {
             view = LayoutInflater.from(context).inflate(LAYOUT, parent, false);
         }
+
+        final CheckBox selectAppUser = (CheckBox) view.findViewById(R.id.main_player_cell_select_player);
+
+        selectAppUser.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean checked) {
+                if (checked) {
+                    if (currAppUser != null) {
+                        currAppUser.setAppUser(false);
+                    }
+                    player.setAppUser(true);
+                    currAppUser = player;
+                } else {
+                    player.setAppUser(false);
+                }
+                notifyDataSetChanged();
+            }
+        });
+        if (!player.isAppUser()) {
+            selectAppUser.setChecked(false);
+        }
+
         final EditText nameText = (EditText) view.findViewById(R.id.main_player_cell_select_player_edit_text);
         nameText.setText(player.getName());
 
@@ -75,14 +100,18 @@ public class PlayerListAdapter extends ArrayAdapter<Player> {
         });
 
         Button removeButton = (Button) view.findViewById(R.id.main_player_cell_select_player_remove_btn);
-        removeButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                players.remove(position);
-                notifyDataSetChanged();
-            }
-        });
-
+        if (position < 3) {
+            removeButton.setVisibility(View.INVISIBLE);
+        } else {
+            removeButton.setVisibility(View.VISIBLE);
+            removeButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    players.remove(position);
+                    notifyDataSetChanged();
+                }
+            });
+        }
         return view;
     }
 
