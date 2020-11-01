@@ -8,7 +8,11 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 
 import com.laibold.concluesion.model.Game;
 import com.laibold.concluesion.model.Player;
-import com.laibold.concluesion.persistence.dao.GameDao;
+import com.laibold.concluesion.model.card.Card;
+import com.laibold.concluesion.model.card.CardType;
+import com.laibold.concluesion.model.card.Deck;
+import com.laibold.concluesion.persistence.room.AppDatabase;
+import com.laibold.concluesion.persistence.room.dao.GameDao;
 
 import org.junit.After;
 import org.junit.Before;
@@ -40,7 +44,7 @@ public class GamePersistenceTest {
     }
 
     @Test
-    public void writeUserAndReadInList() throws Exception {
+    public void saveGameWithPlayers_isCorrect() throws Exception {
         Game game = new Game();
         Player player1 = new Player("Beggae");
         Player player2 = new Player("Mawien");
@@ -60,6 +64,31 @@ public class GamePersistenceTest {
         assertEquals(players.get(2).getName(), "");
         assertEquals(players.get(3).getName(), "Beggae");
         assertEquals(players.get(4).getName(), "Mawien");
+    }
+
+    @Test
+    public void saveGameWithDeck_isCorrect() {
+        Game game = new Game();
+
+        Deck deck = new Deck();
+        Card testCard1 = new Card(CardType.CHARACTER, "test_character");
+        Card testCard2 = new Card(CardType.WEAPON, "test_weapon");
+        Card testCard3 = new Card(CardType.ROOM, "test_room");
+
+        deck.addCard(testCard1);
+        deck.addCard(testCard2);
+        deck.addCard(testCard3);
+        game.setDeck(deck);
+
+        gameDao.insert(game);
+
+        Game loadedGame = gameDao.loadAll()[0];
+        Deck loadedDeck = loadedGame.getDeck();
+
+        assertEquals(loadedDeck.getCards().size(), 3);
+        assertEquals(loadedDeck.getCards().get(0), testCard1);
+        assertEquals(loadedDeck.getCards().get(1), testCard2);
+        assertEquals(loadedDeck.getCards().get(2), testCard3);
     }
 
 }

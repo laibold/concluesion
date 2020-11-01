@@ -3,9 +3,9 @@
     <string name="db_name">database.db</string>
 
     <string name="colonel_mustard">Oberst von Gatow</string>
-    <string name="mrs.white">Frau Weiss</string>
-    <string name="mr._green">Reverend Grün</string>
-    <string name="mrs._peacock">Baronin von Porz</string>
+    <string name="mrs_white">Frau Weiss</string>
+    <string name="mr_green">Reverend Grün</string>
+    <string name="mrs_peacock">Baronin von Porz</string>
     <string name="professor_bloom">Professor Bloom</string>
     <string name="miss_scarlet">Fräulein Gloria</string>
 
@@ -29,5 +29,9 @@
     <string name="play">Play</string>
     <string name="choose_yourself">Wähle dich selbst aus</string>
     <string name="give_all_players_a_name">Gib jedem Spieler einen Namen</string>
+
+    <string name="character">Charakter</string>
+    <string name="weapon">Waffe</string>
+    <string name="room">Raum</string>
 
 </resources>

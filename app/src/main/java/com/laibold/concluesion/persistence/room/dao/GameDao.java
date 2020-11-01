@@ -1,4 +1,4 @@
-package com.laibold.concluesion.persistence.dao;
+package com.laibold.concluesion.persistence.room.dao;
 
 import androidx.room.Dao;
 import androidx.room.Insert;

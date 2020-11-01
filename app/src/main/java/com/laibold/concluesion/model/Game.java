@@ -1,20 +1,29 @@
 package com.laibold.concluesion.model;
 
 import androidx.room.ColumnInfo;
+import androidx.room.Embedded;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+import androidx.room.RoomWarnings;
+
+import com.laibold.concluesion.model.card.Deck;
 
 import java.util.ArrayList;
 
 @Entity
+@SuppressWarnings(RoomWarnings.PRIMARY_KEY_FROM_EMBEDDED_IS_DROPPED)
 public class Game {
     @PrimaryKey(autoGenerate = true)
-    private int id;
+    private int gameId;
 
     @ColumnInfo
     private ArrayList<Player> players;
+
     @ColumnInfo
     private int currPlayerIndex = -1;
+
+    @Embedded
+    private Deck deck;
 
     /**
      * Creates new Game
@@ -24,6 +33,20 @@ public class Game {
         players.add(new Player(""));
         players.add(new Player(""));
         players.add(new Player(""));
+    }
+
+    /**
+     * @return ID of Game (for persistence)
+     */
+    public int getGameId() {
+        return gameId;
+    }
+
+    /**
+     * @param gameId ID of Game (for persistence)
+     */
+    public void setGameId(int gameId) {
+        this.gameId = gameId;
     }
 
     /**
@@ -55,20 +78,6 @@ public class Game {
         }
         currPlayerIndex++;
         return players.get(currPlayerIndex);
-    }
-
-    /**
-     * @return ID of Game (for persistence)
-     */
-    public int getId() {
-        return id;
-    }
-
-    /**
-     * @param id ID of Game (for persistence)
-     */
-    public void setId(int id) {
-        this.id = id;
     }
 
     /**
@@ -105,6 +114,20 @@ public class Game {
      */
     public void setCurrPlayerIndex(int currPlayerIndex) {
         this.currPlayerIndex = currPlayerIndex;
+    }
+
+    /**
+     * @return Deck
+     */
+    public Deck getDeck() {
+        return deck;
+    }
+
+    /**
+     * @param deck Deck
+     */
+    public void setDeck(Deck deck) {
+        this.deck = deck;
     }
 
     /**

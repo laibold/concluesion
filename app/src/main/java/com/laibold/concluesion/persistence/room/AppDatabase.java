@@ -1,19 +1,21 @@
-package com.laibold.concluesion.persistence;
+package com.laibold.concluesion.persistence.room;
 
 import android.content.Context;
 
 import com.laibold.concluesion.R;
 import com.laibold.concluesion.model.Game;
-import com.laibold.concluesion.persistence.dao.GameDao;
+import com.laibold.concluesion.model.card.Deck;
+import com.laibold.concluesion.persistence.room.converter.CardConverter;
+import com.laibold.concluesion.persistence.room.converter.PlayerConverter;
+import com.laibold.concluesion.persistence.room.dao.GameDao;
 
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
-import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
 
-@Database(entities = {Game.class}, version = 1)
-@TypeConverters({Converters.class})
+@Database(entities = {Game.class, Deck.class}, version = 2, exportSchema = false)
+@TypeConverters({PlayerConverter.class, CardConverter.class})
 public abstract class AppDatabase extends RoomDatabase {
 
     private static String DB_NAME;

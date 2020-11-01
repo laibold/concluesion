@@ -8,6 +8,9 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.laibold.concluesion.model.Game;
+import com.laibold.concluesion.model.GameEdition;
+import com.laibold.concluesion.model.card.Deck;
+import com.laibold.concluesion.service.DeckBuilder;
 import com.laibold.concluesion.ui.main.MainFragment;
 import com.laibold.concluesion.ui.main.MainViewModel;
 
@@ -46,6 +49,10 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+        getPackageName();
+
+        Deck deck = DeckBuilder.buildDeck(GameEdition.CLASSIC, getResources().openRawResource(R.raw.editions));
+        game.setDeck(deck);
         Toast.makeText(getApplicationContext(), "Subbä, Herr Laibold", Toast.LENGTH_SHORT).show();
         //TODO start Game
     }

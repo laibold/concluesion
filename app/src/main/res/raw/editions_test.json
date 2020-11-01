@@ -1,0 +1,16 @@
+{
+  "TEST_EDITION": {
+    "CHARACTER": [
+      "test_character_1",
+      "test_character_2"
+    ],
+    "WEAPON": [
+      "test_weapon_1",
+      "test_weapon_2"
+    ],
+    "ROOM": [
+      "test_room_1",
+      "test_room_2"
+    ]
+  }
+}

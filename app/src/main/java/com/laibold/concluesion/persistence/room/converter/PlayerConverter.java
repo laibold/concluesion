@@ -1,4 +1,4 @@
-package com.laibold.concluesion.persistence;
+package com.laibold.concluesion.persistence.room.converter;
 
 import androidx.room.TypeConverter;
 
@@ -9,17 +9,16 @@ import com.laibold.concluesion.model.Player;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
-public class Converters {
+public class PlayerConverter {
     @TypeConverter
-    public static ArrayList<Player> fromPlayers(String value){
+    public static ArrayList<Player> fromJson(String playerValue){
         Type listType = new TypeToken<ArrayList<Player>>() {}.getType();
-        return new Gson().fromJson(value, listType);
+        return new Gson().fromJson(playerValue, listType);
     }
 
     @TypeConverter
-    public static String fromArrayList(ArrayList<Player> list){
+    public static String toJson(ArrayList<Player> playerArrayList){
         Gson gson = new Gson();
-        String json = gson.toJson(list);
-        return json;
+        return gson.toJson(playerArrayList);
     }
 }
