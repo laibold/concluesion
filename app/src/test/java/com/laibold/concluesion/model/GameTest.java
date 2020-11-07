@@ -6,9 +6,9 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class GameTest {
-    Game testGame;
-    Player testA;
-    Player testB;
+    private Game testGame;
+    private Player testA;
+    private Player testB;
 
     @Before
     public void init() {

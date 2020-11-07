@@ -55,7 +55,7 @@ public class JsonHandler {
 
     /**
      * Reads from InputStream and writes content to ByteArrayOutputStream
-     * @param inputStream Inputstream
+     * @param inputStream InputStream
      * @return ByteArrayOutputStream
      */
     private ByteArrayOutputStream readToOutputStream(InputStream inputStream) {

@@ -1,6 +1,7 @@
 package com.laibold.concluesion;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import com.laibold.concluesion.model.Game;
 import com.laibold.concluesion.model.GameEdition;
 import com.laibold.concluesion.model.card.Deck;
 import com.laibold.concluesion.service.DeckBuilder;
+import com.laibold.concluesion.ui.deck.DeckFragment;
 import com.laibold.concluesion.ui.main.MainFragment;
 import com.laibold.concluesion.ui.main.MainViewModel;
 
@@ -29,12 +31,12 @@ public class MainActivity extends AppCompatActivity {
                     .replace(R.id.container, MainFragment.newInstance())
                     .commitNow();
         }
-
     }
 
     /**
      * Validates Game and starts it when everything is okay
-     * @param view
+     *
+     * @param view View
      */
     public void startGame(View view) {
         Game game = mViewModel.getGame().getValue();
@@ -49,11 +51,18 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        getPackageName();
-
         Deck deck = DeckBuilder.buildDeck(GameEdition.CLASSIC, getResources().openRawResource(R.raw.editions));
         game.setDeck(deck);
-        Toast.makeText(getApplicationContext(), "Subbä, Herr Laibold", Toast.LENGTH_SHORT).show();
-        //TODO start Game
+
+        switchToDeckFragment();
+    }
+
+    /**
+     * Replaces current Fragment with DeckFragment
+     */
+    private void switchToDeckFragment() {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.container, new DeckFragment());
+        ft.commit();
     }
 }
